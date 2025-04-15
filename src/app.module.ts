@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 @Module({
   imports: [
@@ -11,6 +14,11 @@ import { UserModule } from './user/user.module';
       // envFilePath: './.env',
     }),
     MongooseModule.forRoot(process.env.MONGO_DB_URI as string),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      playground: true,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql')
+    }),
     UserModule
   ],
   controllers: [AppController],
