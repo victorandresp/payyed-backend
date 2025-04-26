@@ -13,16 +13,16 @@ export class Carousel {
   title: string;
 
   @Prop({ required: true })
-  subtitle: number;
+  subtitle: string;
 
   @Prop({ required: true })
-  orientation: number;
+  orientation: string;
 
   @Prop({ required: true })
-  firstButton: number;
+  firstButton: string;
 
   @Prop({ required: true })
-  secondButton: number;
+  secondButton: string;
 }
 
 export const CarouselSchema = SchemaFactory.createForClass(Carousel);
