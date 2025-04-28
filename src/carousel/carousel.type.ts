@@ -19,4 +19,7 @@ export class CarouselType {
 
   @Field()
   secondButton: string;
+
+  @Field()
+  path: string;
 }

@@ -23,6 +23,9 @@ export class Carousel {
 
   @Prop({ required: true })
   secondButton: string;
+
+  @Prop({ required: true })
+  path: string;
 }
 
 export const CarouselSchema = SchemaFactory.createForClass(Carousel);

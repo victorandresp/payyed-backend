@@ -21,6 +21,7 @@ type CarouselType {
   orientation: String!
   firstButton: String!
   secondButton: String!
+  path: String!
 }
 
 type Query {
