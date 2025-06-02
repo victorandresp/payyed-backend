@@ -27,5 +27,4 @@ export class Carousel {
   @Prop({ required: true })
   path: string;
 }
-
 export const CarouselSchema = SchemaFactory.createForClass(Carousel);
