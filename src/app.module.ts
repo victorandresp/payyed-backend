@@ -8,6 +8,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { CarouselModule } from './carousel/carousel.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -21,7 +22,8 @@ import { CarouselModule } from './carousel/carousel.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql')
     }),
     UserModule,
-    CarouselModule
+    CarouselModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService]
