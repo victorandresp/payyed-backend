@@ -12,8 +12,11 @@ export class UserService {
   getUser() {
     return {
       id: 'id',
-      name: 'victor',
-      age: 27,
+      firstName: 'victor',
+      lastName: 'andres',
+      email: 'victorandres@gmail.com',
+      isActive: true,
+      // password: 'asdasd',
       createdAt: new Date()
     };
   }

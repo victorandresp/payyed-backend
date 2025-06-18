@@ -6,10 +6,19 @@ export class UserType {
   id: string;
 
   @Field()
-  name: string;
+  firstName: string;
 
   @Field()
-  age: number;
+  lastName: string;
+
+  @Field()
+  email: string;
+
+  @Field()
+  password?: string;
+
+  @Field()
+  isActive: boolean;
 
   @Field(() => Date)
   createdAt: Date;

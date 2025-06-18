@@ -4,8 +4,11 @@
 
 type UserType {
   id: ID!
-  name: String!
-  age: Float!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  isActive: Boolean!
   createdAt: DateTime!
 }
 
