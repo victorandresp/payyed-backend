@@ -1,5 +1,5 @@
 import { Resolver, Query, Args } from '@nestjs/graphql';
-import { UserType } from '../user/user.type';
+import { UserType } from '../user/user.types';
 import { AuthService } from './auth.service';
 
 export class AuthInput {}

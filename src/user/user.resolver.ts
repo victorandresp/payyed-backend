@@ -1,5 +1,5 @@
 import { Resolver, Query } from '@nestjs/graphql';
-import { UserType } from './user.type';
+import { UserType } from './user.types';
 import { UserService } from './user.service';
 
 export class UserInput {}
