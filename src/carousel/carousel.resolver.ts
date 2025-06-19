@@ -1,5 +1,5 @@
 import { Resolver, Query } from '@nestjs/graphql';
-import { CarouselType } from './carousel.type';
+import { CarouselType } from './carousel.types';
 import { CarouselService } from './carousel.service';
 
 export class CarouselInput {}
