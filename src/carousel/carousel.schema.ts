@@ -3,7 +3,6 @@ import { HydratedDocument } from 'mongoose';
 import { Types } from 'mongoose';
 
 export type CarouselDocument = HydratedDocument<Carousel>;
-
 @Schema()
 export class Carousel {
   @Prop({ type: Types.ObjectId, default: () => new Types.ObjectId() })
