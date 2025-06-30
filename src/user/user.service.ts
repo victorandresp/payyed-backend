@@ -17,7 +17,8 @@ export class UserService {
       email: 'victorandres@gmail.com',
       isActive: true,
       // password: 'asdasd',
-      createdAt: new Date()
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
   }
 }
