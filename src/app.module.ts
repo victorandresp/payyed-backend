@@ -18,7 +18,7 @@ import { AuthModule } from './auth/auth.module';
     MongooseModule.forRoot(process.env.MONGO_DB_URI as string),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      introspection: process.env.NODE_ENV !== 'production',
+      introspection: process.env.NODE_ENV !== 'production', // disallow in production show schemas
       playground: process.env.NODE_ENV !== 'production',
       autoSchemaFile: join(process.cwd(), 'src/schema.gql')
     }),
