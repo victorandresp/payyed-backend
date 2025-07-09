@@ -23,14 +23,14 @@
 
 ## Security Considerations
 
-- **Helmet**
-- **Sanitize Inputs**
-- **Introspection Graphgql**
-- **JWT Auth**
-- **CORS**
-- **ENV variables**
-- **Sanitize Mongo DB Querys**
-- **Use ODM**
+- **Helmet:** Protects the API from common vulnerabilities related to malicious HTTP headers.
+- **Sanitize Inputs:** Uses class validators to prevent malicious or malformed inputs at the data entry level, ensuring no unsanitized data reaches the database.
+- **Introspection GraphQL:** Disables introspection in production environments to avoid exposing the GraphQL schema; Playground access is also turned off in production.
+- **JWT Auth:** Implements authentication using JWT with access tokens and route protection via middleware.
+- **CORS:** Configures CORS to block requests from unknown or unauthorized origins.
+- **ENV Variables:** Manages secure environment variables based on the current runtime environment, for constants and sensitive configuration values.
+- **Sanitize MongoDB Queries:** Adds Express middleware to prevent NoSQL injection attacks by blocking the use of unsafe operators in requests (`req.body`, `req.params`, `req.query`), disallowing `$` and `.` characters.
+- **Use ODM:** Uses Mongoose to validate and structure data and database queries.
 
 ## Description
 
