@@ -21,6 +21,17 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+## Security Considerations
+
+- **Helmet**
+- **Sanitize Inputs**
+- **Introspection Graphgql**
+- **JWT Auth**
+- **CORS**
+- **ENV variables**
+- **Sanitize Mongo DB Querys**
+- **Use ODM**
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
