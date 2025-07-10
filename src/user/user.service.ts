@@ -16,7 +16,6 @@ export class UserService {
       lastName: 'andres',
       email: 'victorandres@gmail.com',
       isActive: true,
-      // password: 'asdasd',
       createdAt: new Date(),
       updatedAt: new Date()
     };
