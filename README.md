@@ -25,7 +25,7 @@
 
 - **Helmet:** Protects the API from common vulnerabilities related to malicious HTTP headers.
 - **AES-256*:** Encryption algorithm to protect sensitive data during data transfer.
-- **Bcrypt*:** Hash the password with algorithm no-reversible and with salt for avoid unexpected decrypt and force brute attacks. 
+- **Bcrypt:** Hash the password with algorithm no-reversible and with salt for avoid unexpected decrypt and force brute attacks. 
 - **Sanitize Inputs*:** Uses class validators to prevent malicious or malformed inputs at the data entry level, ensuring no unsanitized data reaches the database.
 - **Introspection GraphQL:** Disables introspection in production environments to avoid exposing the GraphQL schema; Playground access is also turned off in production.
 - **JWT Auth:** Implements authentication using JWT with access tokens and route protection via middleware.
