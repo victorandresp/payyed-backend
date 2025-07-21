@@ -1,9 +1,11 @@
 import {
   Injectable,
   NotFoundException,
-  UnauthorizedException
+  UnauthorizedException,
+  BadRequestException
 } from '@nestjs/common';
 import { AuthRepository } from './auth.repository';
+import { SignInInput } from './auth.types';
 import * as bcrypt from 'bcryptjs';
 @Injectable()
 export class AuthService {
@@ -27,8 +29,19 @@ export class AuthService {
     };
   }
 
-  signIn(input: any) {
-    console.log(input);
+  signIn(signInData: SignInInput) {
+    if (
+      !signInData ||
+      !signInData.firstName ||
+      !signInData.lastName ||
+      !signInData.email
+    ) {
+      throw new BadRequestException('Invalid data');
+    }
+    const isValidPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(
+      signInData.password
+    );
+    if (!isValidPassword) throw new BadRequestException('Weak Password');
     return {
       firstName: 'Victor',
       lastName: 'Test',
