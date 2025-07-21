@@ -1,4 +1,4 @@
-import { ArgsType, Field, ObjectType } from '@nestjs/graphql';
+import { ArgsType, Field, InputType, ObjectType } from '@nestjs/graphql';
 import { UserType } from 'src/user/user.types';
 @ArgsType()
 export class LogInArgs {
@@ -15,4 +15,19 @@ export class LogInOutput {
 
   @Field(() => UserType)
   user: UserType;
+}
+
+@InputType()
+export class SignInInput {
+  @Field()
+  firstName: string;
+
+  @Field()
+  lastName: string;
+
+  @Field()
+  email: string;
+
+  @Field()
+  password: string;
 }
