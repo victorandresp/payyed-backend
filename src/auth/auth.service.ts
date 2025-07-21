@@ -2,7 +2,8 @@ import {
   Injectable,
   NotFoundException,
   UnauthorizedException,
-  BadRequestException
+  BadRequestException,
+  ConflictException
 } from '@nestjs/common';
 import { AuthRepository } from './auth.repository';
 import { SignInInput } from './auth.types';
@@ -29,19 +30,23 @@ export class AuthService {
     };
   }
 
-  signIn(signInData: SignInInput) {
+  async signIn(signInData: SignInInput) {
     if (
       !signInData ||
       !signInData.firstName ||
       !signInData.lastName ||
       !signInData.email
     ) {
-      throw new BadRequestException('Invalid data');
+      throw new BadRequestException('Invalid data.');
     }
+
+    const emailExists = await this.authRepository.emailExists(signInData.email);
+    if (emailExists) throw new ConflictException('Email exists.');
+
     const isValidPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(
       signInData.password
     );
-    if (!isValidPassword) throw new BadRequestException('Weak Password');
+    if (!isValidPassword) throw new BadRequestException('Weak Password.');
     return {
       firstName: 'Victor',
       lastName: 'Test',
