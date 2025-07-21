@@ -41,17 +41,14 @@ export class AuthService {
     }
 
     const emailExists = await this.authRepository.emailExists(signInData.email);
-    if (emailExists) throw new ConflictException('Email exists.');
+    if (emailExists) throw new ConflictException('User already exists.');
 
     const isValidPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(
       signInData.password
     );
+
     if (!isValidPassword) throw new BadRequestException('Weak Password.');
-    return {
-      firstName: 'Victor',
-      lastName: 'Test',
-      password: 'test123',
-      email: 'test@test.com'
-    };
+
+    return this.authRepository.saveUser(signInData);
   }
 }
