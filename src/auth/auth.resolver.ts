@@ -1,12 +1,18 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
-import { LogInArgs, LogInOutput } from './auth.types';
+import { LogInArgs, LogInOutput, SignInInput } from './auth.types';
+import { UserType } from '../user/user.types';
 @Resolver(() => LogInOutput)
 export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
-  @Query(() => LogInOutput)
+  @Query(() => LogInOutput) // TODO: pass to mutation
   logIn(@Args() args: LogInArgs) {
     const { email, password } = args;
     return this.authService.logIn(email, password);
+  }
+
+  @Mutation(() => UserType)
+  signIn(@Args('input') input: SignInInput) {
+    return this.authService.signIn(input);
   }
 }

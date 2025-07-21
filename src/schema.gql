@@ -38,3 +38,14 @@ type Query {
   getCarouselImages: [CarouselType!]!
   logIn(email: String!, password: String!): LogInOutput!
 }
+
+type Mutation {
+  signIn(input: SignInInput!): UserType!
+}
+
+input SignInInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+}

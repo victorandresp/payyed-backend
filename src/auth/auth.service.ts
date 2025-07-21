@@ -26,4 +26,14 @@ export class AuthService {
       user
     };
   }
+
+  signIn(input: any) {
+    console.log(input);
+    return {
+      firstName: 'Victor',
+      lastName: 'Test',
+      password: 'test123',
+      email: 'test@test.com'
+    };
+  }
 }
