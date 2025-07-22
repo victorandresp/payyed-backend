@@ -5,6 +5,7 @@ import {
   BadRequestException,
   ConflictException
 } from '@nestjs/common';
+import { User } from 'src/user/user.schema';
 import { AuthRepository } from './auth.repository';
 import { SignInInput } from './auth.types';
 import * as bcrypt from 'bcryptjs';
@@ -30,7 +31,7 @@ export class AuthService {
     };
   }
 
-  async signIn(signInData: SignInInput) {
+  async signIn(signInData: SignInInput): Promise<User> {
     if (
       !signInData ||
       !signInData.firstName ||
