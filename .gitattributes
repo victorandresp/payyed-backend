@@ -1,0 +1,24 @@
+# Force use of LF in common text files
+*.ts text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.graphql text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Files that may require CRLF (e.g. Windows scripts)
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files - Git must not modify
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.pdf binary
+
+# General configuration file
+* text=auto
