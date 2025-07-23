@@ -13,8 +13,8 @@ import { JwtModule } from './jwt/jwt.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
-      // envFilePath: './.env',
+      isGlobal: true,
+      envFilePath: '.env'
     }),
     MongooseModule.forRoot(process.env.MONGO_DB_URI as string),
     GraphQLModule.forRoot<ApolloDriverConfig>({
