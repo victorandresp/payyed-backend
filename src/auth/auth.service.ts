@@ -25,6 +25,10 @@ export class AuthService {
       throw new UnauthorizedException('Email or password is invalid');
     }
 
+    if (!user.isActive) {
+      throw new UnauthorizedException('User is not Active in the platform.');
+    }
+
     return {
       accessToken: '',
       user
