@@ -8,10 +8,14 @@ import {
 import { User } from 'src/user/user.schema';
 import { AuthRepository } from './auth.repository';
 import { SignInInput } from './auth.types';
+import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 @Injectable()
 export class AuthService {
-  constructor(private readonly authRepository: AuthRepository) {}
+  constructor(
+    private readonly authRepository: AuthRepository,
+    private readonly jwtService: JwtService
+  ) {}
 
   async logIn(email: string, password: string) {
     console.log(password);
@@ -30,7 +34,7 @@ export class AuthService {
     }
 
     return {
-      accessToken: '',
+      accessToken: this.jwtService.sign({ id: user._id, email: user.email }),
       user
     };
   }
