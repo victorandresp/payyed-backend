@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { AuthModule } from './auth/auth.module';
+import { JwtModule } from './jwt/jwt.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -24,7 +25,8 @@ import { AuthModule } from './auth/auth.module';
     }),
     UserModule,
     CarouselModule,
-    AuthModule
+    AuthModule,
+    JwtModule
   ],
   controllers: [AppController],
   providers: [AppService]
