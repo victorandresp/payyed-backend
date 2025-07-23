@@ -36,10 +36,10 @@ type LogInOutput {
 type Query {
   getUser: UserType!
   getCarouselImages: [CarouselType!]!
-  logIn(email: String!, password: String!): LogInOutput!
 }
 
 type Mutation {
+  logIn(email: String!, password: String!): LogInOutput!
   signIn(input: SignInInput!): UserType!
 }
 
