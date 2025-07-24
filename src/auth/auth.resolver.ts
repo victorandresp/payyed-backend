@@ -5,7 +5,7 @@ import { UserType } from '../user/user.types';
 @Resolver(() => LogInOutput)
 export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
-  @Mutation(() => LogInOutput) // TODO: pass to mutation
+  @Mutation(() => LogInOutput)
   logIn(@Args() args: LogInArgs) {
     const { email, password } = args;
     return this.authService.logIn(email, password);
