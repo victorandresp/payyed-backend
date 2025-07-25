@@ -18,7 +18,6 @@ export class AuthService {
   ) {}
 
   async logIn(email: string, password: string) {
-    console.log(password);
     const user = await this.authRepository.emailExists(email);
     if (!user) {
       throw new NotFoundException('User does not exists');
