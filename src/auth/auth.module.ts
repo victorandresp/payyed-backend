@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 import { AuthResolver } from './auth.resolver';
 import { AuthRepository } from './auth.repository';
 import { UserModule } from 'src/user/user.module';
-
+import { GqlAuthGuard } from './auth.guard';
 @Module({
   imports: [
     PassportModule,
@@ -21,6 +21,13 @@ import { UserModule } from 'src/user/user.module';
       inject: [ConfigService]
     })
   ],
-  providers: [AuthService, AuthResolver, AuthRepository, JwtStrategy]
+  providers: [
+    AuthService,
+    AuthResolver,
+    AuthRepository,
+    JwtStrategy,
+    GqlAuthGuard
+  ],
+  exports: [GqlAuthGuard]
 })
 export class AuthModule {}
