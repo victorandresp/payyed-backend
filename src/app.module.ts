@@ -19,7 +19,7 @@ import { JwtModule } from './jwt/jwt.module';
     MongooseModule.forRoot(process.env.MONGO_DB_URI as string),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      introspection: process.env.NODE_ENV !== 'production', // disallow in production show schemas
+      introspection: process.env.NODE_ENV !== 'production',
       playground: process.env.NODE_ENV !== 'production',
       autoSchemaFile: join(process.cwd(), 'src/schema.gql')
     }),
