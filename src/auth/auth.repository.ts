@@ -9,6 +9,7 @@ export class AuthRepository {
     @InjectModel(User.name)
     private readonly userModel: Model<UserDocument>
   ) {}
+
   async emailExists(email: string) {
     return await this.userModel.findOne({ email });
   }
